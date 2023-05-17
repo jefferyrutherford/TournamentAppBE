@@ -29,6 +29,6 @@ api.get('/', (req,res) =>{
 
 
 api.get('/getTournamentsLatest',  async (req,res) => {
-    const tournaments = await Tournament.find();
-    res.send(tournaments)
+    //const tournaments = await Tournament.find();
+    res.send('Welcom to latest Tournament Page')
 })
