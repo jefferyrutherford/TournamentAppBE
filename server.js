@@ -9,6 +9,7 @@ const api = express();
 const HOST = 'localhost'
 const PORT = 8080
 const Tournament = require("./Tournament")
+const cors = require('cors')
 
 //connect to mongoDB
 connectDB();
@@ -17,13 +18,21 @@ mongoose.connection.once('open', () => {
     console.log('Connected To DB'
     
     )})
-api.listen(PORT, () => console.log("Made It"))
 
 
+api.listen(PORT, () => console.log("Server Is Running On localhost:8080"))
 
+
+api.use(cors())
 
 
 api.get('/', (req,res) =>{
+    console.log('/Hit!!!!')
+    res.send('{"ID" : "11",  "message" : "Welcome to the page"}')
+})
+
+api.post('/', (req,res) =>{
+    console.log('/Post Hit!!!!')
     res.send('Welcome to the page')
 })
 
